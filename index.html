@@ -9,23 +9,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Login | Mang Inasal Kiosk</title>
 </head>
-<body class="fle items-ceter jutify-center min-h-scren">
+<body class="flex items-center justify-center min-h-screen">
     <main class="flex items-center justify-center flex-col w-full gap-4 bg-white shadow-2xl max-w-md py-8 px-8 rounded-lg">
         <div class="flex items-center justify-center gap-1 flex-col">
             <img class="w-[120px] lg:w-[150px]" src="images/Mang_Inasal.svg" alt="">
-            <h1 class="font-bold text-3xl">Mang Inasal Kiosk</h1>
-            <p class="text-[#F2E507] font-bold text-sm">An Integrated Self-Service Ordering & Payment System</p>
+            <h1 class="font-bold text-2xl lg:text-3xl">Mang Inasal Kiosk</h1>
+            <p class="text-[#F2E507] font-bold text-sm text-center lg:text-left">An Integrated Self-Service Ordering & Payment System</p>
         </div>
 
         <div class="border w-full"></div>
 
-        <form class="flex items-center justify-center flex-col gap-3 w-full" action="pages/homepage.html">
-            <input class="border-2 border-gray-400 py-2 rounded-lg w-full" type="email" name="email" id="email" placeholder="Enter your email...">
-            <input class="border-2 border-gray-400 py-2 rounded-lg w-full" type="password" name="password" id="password" placeholder="Enter your password...">
-            <button type="submit" class="bg-[#009436] py-2 px-10  w-full rounded-lg text-white trasition-all duration-300 hover:bg-[#00782C]">
+        <form class="space-y-3 w-full" action="pages/homepage.html">
+            <div class="relative">
+                <i class="absolute left-2 top-2 fa fa-envelope text-xl text-gray-500"></i>
+                <input class="border-2 pl-10 border-gray-400 py-2 rounded-lg w-full" type="email" name="email" id="email" placeholder="Enter your email...">
+            </div>
+
+            <div class="relative">
+                <i class="absolute left-2 top-2 fa fa-key text-lg text-gray-500"></i>
+                <input class="border-2 pl-10 border-gray-400 py-2 rounded-lg w-full" type="password" name="password" id="password" placeholder="Enter your password...">
+            </div>
+            
+            <button type="submit" class="bg-[#009436] py-2 px-10  w-full rounded-lg text-white trasition-all duration-300 lg:hover:bg-[#00782C]">
                 Login
             </button>
-            <button type="submit" class="border border-[#009436] py-2 px-10 w-full rounded-lg text-[#009436]">
+            <button type="submit" class="border border-[#009436] py-2 px-10 w-full rounded-lg text-[#009436] trasition-all duration-300 lg:hover:bg-[#009436] lg:hover:text-white">
                 Continue as guest
             </button>
             <br>
