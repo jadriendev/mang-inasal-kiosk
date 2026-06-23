@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'General Sans';
+    src: url('TTF/GeneralSans-Variable.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'General Sans', sans-serif;
+}
