@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/Mang_Inasal.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home Page | Mang Inasal Kiosk</title>
+</head>
+<body class="min-h-screen flex-col">
+    <header class="w-full border-b">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between py-5 lg:py-3 px-5">
+            <div class="block lg:hidden">
+                <i class="fa fa-bars text-2xl"></i>
+            </div>
+
+            <div class="flex items-center">
+                <img class="lg:w-[90px] w-[50px]" src="../images/Mang_Inasal.svg" alt="">
+
+                <div class="hidden lg:flex flex items-center w-full p-3 gap-3 bg-white rounded-lg">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-yellow-500"></i>
+                        <span>123 Katipunan Ave, Quezon City</span>
+                    </div>
+
+                    <i class="fa-solid fa-caret-down"></i>
+
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-motorcycle text-yellow-500"></i>
+                        <span>Deliver, Today, ASAP</span>
+                    </div>
+
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-5">
+                <a class="bg-[#009436] py-2 px-3 lg:px-4 rounded-lg transition-all duration-300 lg:hover:scale-105" href="cart.html">
+                    <i class="fa fa-shopping-cart text-white"></i>
+                </a>
+                    
+                <h1 class="hidden lg:inline-block text-lg lg:text-xl font-semibold">Welcome, Eric</h1>
+            </div>
+        </nav>
+    </header>
+
+    <section class="w-full border-b">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="w-full py-3 px-3">
+                <a class="text-md font-semibold lg:hover:text-[#009436]" href="homepage.html">Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full border-b">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="flex items-center gap-6 py-5">
+                <!--<div class="py-3">
+                    <div class="relative">
+                        <i class="absolute top-3 left-2 text-[#009436] fa fa-magnifying-glass"></i>
+                        <input class="border py-2 rounded-lg pl-9 w-[250px]" type="text" placeholder="Search">
+                    </div>
+                </div> -->
+
+                <nav class="w-full overflow-x-auto">
+                    <ul class="flex items-center gap-6 lg:gap-10 whitespace-nowrap min-w-max px-2">
+                        <li class="">
+                            <a href="#inasal" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images/Chicken Inasal/FS_Regular Chicken.webp"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Chicken Inasal</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#buddy" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images/menu_list/fiesta meal/buddy fiesta/BF_AllChicken.png"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Buddy Fiesta</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#family" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images/menu_list/fiesta meal/family fiesta/FF_Chicken&Liempo.png"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Family Fiesta</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#inumin" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images/menu_list/Inumin/Coke Zero.png"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Inumin</span>
+                            </a>
+                        </li><li class="">
+                            <a href="#liempo" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images/menu_list/Liempo/Grilled Liempo.webp"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Liempo</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#merienda" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images/menu_list/Merienda/Palabok.webp"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Merienda</span>
+                            </a>
+                        </li><li class="">
+                            <a href="#pork" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images/menu_list/Pork Bbq/BS_Bbq.webp"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Pork BBQ</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#sisig" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images/menu_list/Sisig/Pork Sisig.webp"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Sisig</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#solo" class="flex flex-col items-center gap-2">
+                                <div class="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 border border-[#009436] rounded-full p-3 hover:bg-[#009436]/10 transition-all duration-300">
+                                    <img
+                                        class="w-full h-full object-contain"
+                                        src="../images///menu_list/Solo Fiesta/SF_Paa&Bbq.png"
+                                        alt="Chicken Inasal">
+                                </div>
+
+                                <span class="text-sm font-medium">Solo Fiesta</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full border-b">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="w-full py-3 px-3">
+                <a class="text-md font-semibold lg:hover:text-[#009436]" href="homepage.html">Menu</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
