@@ -129,6 +129,8 @@ confirmAdd.addEventListener("click", () => {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     modal.classList.add("hidden");
+
+    showCartPopup(item.name);
 });
 
 document.querySelectorAll(".add-drink").forEach(button => {
@@ -156,6 +158,71 @@ document.querySelectorAll(".add-drink").forEach(button => {
 
         localStorage.setItem("cart", JSON.stringify(cart));
 
-        alert(`${item.name} added to cart!`);
+        showCartPopup(item.name);
     });
 });
+
+const cartPopup = document.getElementById("cartPopup");
+const popupItemName = document.getElementById("popupItemName");
+const closePopup = document.getElementById("closePopup");
+
+
+function showCartPopup(name) {
+    if (cartPopup) {
+        popupItemName.textContent = `${name} has been added to your cart`;
+        cartPopup.classList.remove("hidden");
+
+        setTimeout(() => {
+            cartPopup.classList.add("hidden");
+        }, 2000);
+    }
+}
+
+
+if (closePopup) {
+    closePopup.addEventListener("click", () => {
+        cartPopup.classList.add("hidden");
+    });
+}
+
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+const closeMenu = document.getElementById("closeMenu");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+
+if(menuBtn){
+
+    menuBtn.addEventListener("click", () => {
+
+        sidebar.classList.remove("-translate-x-full");
+        sidebarOverlay.classList.remove("hidden");
+
+    });
+
+
+}
+
+
+if(closeMenu){
+
+    closeMenu.addEventListener("click", () => {
+
+        sidebar.classList.add("-translate-x-full");
+        sidebarOverlay.classList.add("hidden");
+
+    });
+
+}
+
+
+if(sidebarOverlay){
+
+    sidebarOverlay.addEventListener("click", () => {
+
+        sidebar.classList.add("-translate-x-full");
+        sidebarOverlay.classList.add("hidden");
+
+    });
+
+}

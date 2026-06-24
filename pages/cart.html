@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/Mang_Inasal.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cart | Mang Inasal Kiosk</title>
+</head>
+<body class="min-h-screen flex-col">
+    <header class="w-full border-b">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between py-5 lg:py-3 px-5">
+            <button id="menuBtn" class="block lg:hidden">
+                <i class="fa fa-bars text-2xl"></i>
+            </button>
+
+            <div class="flex items-center">
+                <img class="lg:w-[90px] w-[50px]" src="../images/Mang_Inasal.svg" alt="">
+            </div>
+
+            <div class="flex items-center gap-5">
+                <a class="bg-[#009436] hidden lg:block py-2 px-3 lg:px-4 text-white rounded-lg transition-all duration-300 lg:hover:scale-105" href="order.html">Order History</a>
+
+                <a class="bg-[#009436] py-2 px-3 lg:px-4 text-white rounded-lg transition-all duration-300 hover:scale-105" href="homepage.html">
+                    <i class="fa fa-home"></i>
+                </a>
+
+                <a class="bg-[#009436] py-2 px-3 lg:px-4 rounded-lg transition-all duration-300 hover:scale-105" href="cart.html">
+                    <i class="fa fa-shopping-cart text-white"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-40"></div>
+
+    <div id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-white z-50 transform -translate-x-full transition-transform duration-300">
+        <div class="flex items-center justify-between p-5 border-b">
+            <h1 class="font-bold text-xl">
+                Menu
+            </h1>
+
+            <button id="closeMenu">
+                <i class="fa fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <div class="p-5">
+            <h2 class="font-semibold text-lg mb-5">
+                Welcome, Eric
+            </h2>
+
+            <a href="order.html"
+                class="block bg-[#009436] text-white text-center py-3 rounded-lg">
+                Order History
+            </a>
+        </div>
+    </div>
+
+    <section class="w-full">
+    <div class="max-w-7xl mx-auto px-5 py-8">
+
+        <div class="border-b pb-4 mb-6">
+            <h1 class="text-3xl font-bold">
+                My Cart
+            </h1>
+        </div>
+
+        <div class="grid lg:grid-cols-[2fr_1fr] gap-6">
+
+            <div id="cartItems" class="space-y-4">
+            </div>
+
+            <div class="border rounded-xl p-5 h-fit sticky top-5">
+                <h2 class="text-xl font-bold mb-4">
+                    Order Summary
+                </h2>
+
+                <div class="flex justify-between mb-3">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₱0</span>
+                </div>
+
+                <div class="flex justify-between mb-3">
+                    <span>Delivery Fee</span>
+                    <span id="deliveryFee">₱49</span>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="flex justify-between text-xl font-bold">
+                    <span>Total</span>
+                    <span id="grandTotal">₱0</span>
+                </div>
+
+                <button
+                    class="w-full mt-5 py-3 bg-[#009436] text-white rounded-xl font-semibold hover:bg-green-700 transition">
+                    Proceed to Checkout
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+</body>
+<script src="../script/cart.js"></script>
+</html>

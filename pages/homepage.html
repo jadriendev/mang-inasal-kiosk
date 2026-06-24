@@ -12,23 +12,56 @@
 <body class="min-h-screen flex-col">
     <header class="w-full border-b">
         <nav class="max-w-7xl mx-auto flex items-center justify-between py-5 lg:py-3 px-5">
-            <div class="block lg:hidden">
+            <button id="menuBtn" class="block lg:hidden">
                 <i class="fa fa-bars text-2xl"></i>
-            </div>
+            </button>
 
             <div class="flex items-center">
                 <img class="lg:w-[90px] w-[50px]" src="../images/Mang_Inasal.svg" alt="">
             </div>
 
             <div class="flex items-center gap-5">
-                <a class="bg-[#009436] py-2 px-3 lg:px-4 rounded-lg transition-all duration-300 lg:hover:scale-105" href="cart.html">
+                <a class="hidden lg:block bg-[#009436] py-2 px-4 text-white rounded-lg transition-all duration-300 hover:scale-105" href="order.html">
+                    Order History
+                </a>
+
+                <a class="bg-[#009436] py-2 px-3 lg:px-4 rounded-lg transition-all duration-300 hover:scale-105" href="cart.html">
                     <i class="fa fa-shopping-cart text-white"></i>
                 </a>
-                    
-                <h1 class="hidden lg:inline-block text-lg lg:text-xl font-semibold">Welcome, Eric</h1>
+
+                <h1 class="hidden lg:inline-block text-lg lg:text-xl font-semibold">
+                    Welcome, Eric
+                </h1>
             </div>
         </nav>
     </header>
+
+    <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-40"></div>
+
+    <div id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-white z-50 transform -translate-x-full transition-transform duration-300">
+
+        <div class="flex items-center justify-between p-5 border-b">
+            <h1 class="font-bold text-xl">
+                Menu
+            </h1>
+
+            <button id="closeMenu">
+                <i class="fa fa-xmark text-xl"></i>
+            </button>
+
+        </div>
+
+        <div class="p-5">
+            <h2 class="font-semibold text-lg mb-5">
+                Welcome, Eric
+            </h2>
+
+            <a href="order.html"
+                class="block bg-[#009436] text-white text-center py-3 rounded-lg">
+                Order History
+            </a>
+        </div>
+    </div>
 
     <section class="w-full border-b">
         <div class="max-w-[1200px] mx-auto">
@@ -264,7 +297,7 @@
                     </div>
 
                     <button
-                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                         data-name="Buddy Fiesta All Chicken"
                         data-price="358"
                         data-image="../images/menu_list/fiesta meal/buddy fiesta/BF_AllChicken.png">
@@ -283,7 +316,7 @@
                     </div>
 
                     <button
-                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                         data-name="Buddy Fiesta BBQ & Liempo"
                         data-price="367"
                         data-image="../images/menu_list/fiesta meal/buddy fiesta/BF_Bbq&Liempo.png">
@@ -302,7 +335,7 @@
                     </div>
 
                     <button
-                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                         data-name="Buddy Fiesta Chicken & BBQ"
                         data-price="305"
                         data-image="../images/menu_list/fiesta meal/buddy fiesta/BF_Chicken&Bbq.png">
@@ -321,7 +354,7 @@
                     </div>
 
                     <button
-                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                         data-name="Buddy Fiesta Chicken & Liempo"
                         data-price="405"
                         data-image="../images/menu_list/fiesta meal/buddy fiesta/BF_Chicken&Liempo.png">
@@ -348,7 +381,7 @@
                     </div>
 
                     <button
-                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                         data-name="Family Fiesta All Chicken"
                         data-price="348"
                         data-image="../images/menu_list/fiesta meal/family fiesta/FF_AllChicken.png">
@@ -367,7 +400,7 @@
                     </div>
 
                     <button
-                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                         data-name="Family Fiesta Chicken & BBQ"
                         data-price="347"
                         data-image="../images/menu_list/fiesta meal/family fiesta/FF_Chicken&Bbq.png">
@@ -386,7 +419,7 @@
                     </div>
 
                     <button
-                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                         data-name="Family Fiesta Chicken & Liempo"
                         data-price="405"
                         data-image="../images/menu_list/fiesta meal/family fiesta/FF_Chicken&Liempo.png">
@@ -405,7 +438,7 @@
                     </div>
 
                     <button
-                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                         data-name="Family Fiesta Liempo & BBQ"
                         data-price="305"
                         data-image="../images/menu_list/fiesta meal/family fiesta/FF_Liempo&Bbq.png">
@@ -530,72 +563,435 @@
                     </div>
 
                     <div class="p-4">
-                        <h1 class="font-bold text-lg">Liempo</h1>
+                        <h1 class="font-bold text-lg">Grilled Liempo</h1>
                         <span class="font-semibold text-md">₱148</span>
                     </div>
 
                     <button
                         class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
-                        data-name="Family Fiesta All Chicken"
-                        data-price="348"
-                        data-image="../images/menu_list/fiesta meal/family fiesta/FF_AllChicken.png">
+                        data-name="Grilled Liempo"
+                        data-price="148"
+                        data-image="../images/menu_list/Liempo/Grilled Liempo.webp">
                         <i class="fa fa-plus"></i>
                     </button>
                 </div>
 
                 <div class="border flex items-center p-5 rounded-xl">
                     <div class="w-28 h-28 flex items-center justify-center rounded-lg">
-                        <img class="w-full h-full object-contain" src="../images/menu_list/fiesta meal/family fiesta/FF_Chicken&Bbq.png" alt="">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Liempo/Sizzling Liempo.webp" alt="">
                     </div>
 
                     <div class="p-4">
-                        <h1 class="font-bold text-lg">Family Fiesta Chicken & BBQ</h1>
-                        <span class="font-semibold text-md">₱347</span>
+                        <h1 class="font-bold text-lg">Sizzling Liempo</h1>
+                        <span class="font-semibold text-md">₱160</span>
                     </div>
 
                     <button
                         class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
-                        data-name="Family Fiesta Chicken & BBQ"
-                        data-price="347"
-                        data-image="../images/menu_list/fiesta meal/family fiesta/FF_Chicken&Bbq.png">
+                        data-name="Sizzling Liempo"
+                        data-price="160"
+                        data-image="../images/menu_list/Liempo/Sizzling Liempo.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="merienda" class="py-6 px-3 max-w-7xl mx-auto">
+            <div class="border-b mb-6">
+                <h1 class="font-bold text-2xl text-[#333333] mb-3">Merienda</h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Merienda/1 Pc Togue.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">1pc Togue</h1>
+                        <span class="font-semibold text-md">₱50</span>
+                    </div>
+
+                    <button
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full"
+                        data-name="1pc Togue"
+                        data-price="50"
+                        data-image="../images/menu_list/Merienda/1 Pc Togue.webp">
                         <i class="fa fa-plus"></i>
                     </button>
                 </div>
 
                 <div class="border flex items-center p-5 rounded-xl">
                     <div class="w-28 h-28 flex items-center justify-center rounded-lg">
-                        <img class="w-full h-full object-contain" src="../images/menu_list/fiesta meal/family fiesta/FF_Chicken&Liempo.png" alt="">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Merienda/Palabok&Bbq.webp" alt="">
                     </div>
 
                     <div class="p-4">
-                        <h1 class="font-bold text-lg">Family Fiesta Chicken & Liempo</h1>
-                        <span class="font-semibold text-md">₱405</span>
+                        <h1 class="font-bold text-lg">Palabok & BBQ</h1>
+                        <span class="font-semibold text-md">₱60</span>
+                    </div>
+
+                    <button
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full"
+                        data-name="Palabok & BBQ"
+                        data-price="60"
+                        data-image="../images/menu_list/Merienda/Palabok&Bbq.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Merienda/Palabok&Regular Chicken.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Palabok & Regular Chicken</h1>
+                        <span class="font-semibold text-md">₱140</span>
+                    </div>
+
+                    <button
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full"
+                        data-name="Palabok & Regular Chicken"
+                        data-price="140"
+                        data-image="../images/menu_list/Merienda/Palabok&Regular Chicken.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Merienda/Palabok.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Palabok</h1>
+                        <span class="font-semibold text-md">₱70</span>
+                    </div>
+
+                    <button
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full"
+                        data-name="Palabok"
+                        data-price="70"
+                        data-image="../images/menu_list/Merienda/Palabok.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list//Merienda/PS_Palabok.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">PS Palabok</h1>
+                        <span class="font-semibold text-md">₱240</span>
+                    </div>
+
+                    <button
+                        class="add-drink ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full"
+                        data-name="PS Palabok"
+                        data-price="240"
+                        data-image="../images/menu_list//Merienda/PS_Palabok.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="pork" class="py-6 px-3 max-w-7xl mx-auto">
+            <div class="border-b mb-6">
+                <h1 class="font-bold text-2xl text-[#333333] mb-3">Pork BBQ</h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Pork Bbq/1 Pc Bbq Ala Carte.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">1pc BBQ Ala Carte</h1>
+                        <span class="font-semibold text-md">₱100</span>
                     </div>
 
                     <button
                         class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
-                        data-name="Family Fiesta Chicken & Liempo"
-                        data-price="405"
-                        data-image="../images/menu_list/fiesta meal/family fiesta/FF_Chicken&Liempo.png">
+                        data-name="1pc BBQ Ala Carte"
+                        data-price="100"
+                        data-image="../images/menu_list/Pork Bbq/1 Pc Bbq Ala Carte.webp">
                         <i class="fa fa-plus"></i>
                     </button>
                 </div>
 
                 <div class="border flex items-center p-5 rounded-xl">
                     <div class="w-28 h-28 flex items-center justify-center rounded-lg">
-                        <img class="w-full h-full object-contain" src="../images/menu_list/fiesta meal/family fiesta/FF_Liempo&Bbq.png" alt="">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Pork Bbq/1 Pc Bbq Java Rice.webp" alt="">
                     </div>
 
                     <div class="p-4">
-                        <h1 class="font-bold text-lg">Family Fiesta Liempo & BBQ</h1>
+                        <h1 class="font-bold text-lg">1pc BBQ Java Rice</h1>
+                        <span class="font-semibold text-md">₱130</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="1pc BBQ Java Rice"
+                        data-price="130"
+                        data-image="../images/menu_list/Pork Bbq/1 Pc Bbq Java Rice.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Pork Bbq/2 Pc Bbq Java Rice.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">2pc BBQ Java Rice</h1>
+                        <span class="font-semibold text-md">₱160</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="2pc BBQ Java Rice"
+                        data-price="160"
+                        data-image="../images/menu_list/Pork Bbq/2 Pc Bbq Java Rice.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Pork Bbq/2 Pc Bbq.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">2pc BBQ</h1>
+                        <span class="font-semibold text-md">₱120</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="2pc BBQ"
+                        data-price="120"
+                        data-image="../images/menu_list/Pork Bbq/2 Pc Bbq.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Pork Bbq/BS_Bbq.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">BS BBQ</h1>
+                        <span class="font-semibold text-md">₱205</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="BS BBQ"
+                        data-price="205"
+                        data-image="../images/menu_list/Pork Bbq/BS_Bbq.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Pork Bbq/FS_Bbq.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">FS BBQ</h1>
                         <span class="font-semibold text-md">₱305</span>
                     </div>
 
                     <button
                         class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
-                        data-name="Family Fiesta Liempo & BBQ"
+                        data-name="FS BBQ"
                         data-price="305"
-                        data-image="../images/menu_list/fiesta meal/family fiesta/FF_Liempo&Bbq.png">
+                        data-image="../images/menu_list/Pork Bbq/FS_Bbq.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Pork Bbq/PS_Bbq.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">PS BBQ</h1>
+                        <span class="font-semibold text-md">₱405</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="PS BBQ"
+                        data-price="405"
+                        data-image="../images/menu_list/Pork Bbq/PS_Bbq.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="sisig" class="py-6 px-3 max-w-7xl mx-auto">
+            <div class="border-b mb-6">
+                <h1 class="font-bold text-2xl text-[#333333] mb-3">Sisig</h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Sisig/Bangus Sisig.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Bangus Sisig</h1>
+                        <span class="font-semibold text-md">₱130</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="Bangus Sisig"
+                        data-price="130"
+                        data-image="../images/menu_list/Sisig/Bangus Sisig.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Sisig/Pork Sisig.webp" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Pork Sisig</h1>
+                        <span class="font-semibold text-md">₱120</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="Pork Sisig"
+                        data-price="120"
+                        data-image="../images/menu_list/Sisig/Pork Sisig.webp">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="solo" class="py-6 px-3 max-w-7xl mx-auto">
+            <div class="border-b mb-6">
+                <h1 class="font-bold text-2xl text-[#333333] mb-3">Solo Fiesta</h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Solo Fiesta/SF_Bbq.png" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Solo Fiesta BBQ</h1>
+                        <span class="font-semibold text-md">₱130</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="Solo Fiesta BBQ"
+                        data-price="130"
+                        data-image="../images/menu_list/Solo Fiesta/SF_Bbq.png">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Solo Fiesta/SF_Paa&Bbq.png" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Solo Fiesta Paa & BBQ</h1>
+                        <span class="font-semibold text-md">₱120</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="Solo Fiesta Paa & BBQ"
+                        data-price="120"
+                        data-image="../images/menu_list/Solo Fiesta/SF_Paa&Bbq.png">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/menu_list/Solo Fiesta/SF_Paa.png" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Solo Fiesta Paa</h1>
+                        <span class="font-semibold text-md">₱110</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="Solo Fiesta Paa"
+                        data-price="110"
+                        data-image="../images/menu_list/Solo Fiesta/SF_Paa.png">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="panamis" class="py-6 px-3 max-w-7xl mx-auto">
+            <div class="border-b mb-6">
+                <h1 class="font-bold text-2xl text-[#333333] mb-3">Panamis</h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/Panamis/Crema de Leche.png" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Crema de Leche</h1>
+                        <span class="font-semibold text-md">₱60</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="Crema de Leche"
+                        data-price="60"
+                        data-image="../images/Panamis/Crema de Leche.png">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="border flex items-center p-5 rounded-xl">
+                    <div class="w-28 h-28 flex items-center justify-center rounded-lg">
+                        <img class="w-full h-full object-contain" src="../images/Panamis/Halo-halo.png" alt="">
+                    </div>
+
+                    <div class="p-4">
+                        <h1 class="font-bold text-lg">Halo Halo</h1>
+                        <span class="font-semibold text-md">₱80</span>
+                    </div>
+
+                    <button
+                        class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                        data-name="Halo Halo"
+                        data-price="80"
+                        data-image="../images/Panamis/Halo-halo.png">
                         <i class="fa fa-plus"></i>
                     </button>
                 </div>
@@ -680,11 +1076,11 @@
                 </div>
 
                 <div class="mt-5 border rounded-xl p-4 flex items-center justify-between">
-    <span class="font-semibold text-lg">Total</span>
-    <span id="totalPrice" class="font-bold text-2xl text-[#009436]">
-        ₱0
-    </span>
-</div>
+                    <span class="font-semibold text-lg">Total</span>
+                    <span id="totalPrice" class="font-bold text-2xl text-[#009436]">
+                        ₱0
+                    </span>
+                </div>
 
                 <button
                     id="confirmAdd"
@@ -694,6 +1090,29 @@
             </div>
         </div>
     </div>
+
+    <div id="cartPopup" class="hidden fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
+        <div class="bg-white rounded-2xl p-6 w-[350px] text-center">
+
+            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-[#009436] rounded-full">
+                <i class="fa fa-check text-white text-3xl"></i>
+            </div>
+
+            <h2 class="text-2xl font-bold mt-4">
+                Added to Cart!
+            </h2>
+
+            <p id="popupItemName" class="text-gray-600 mt-2">
+            </p>
+
+            <button
+                id="closePopup"
+                class="mt-5 w-full bg-[#009436] text-white py-3 rounded-xl font-semibold">
+                Close
+            </button>
+
+        </div>
+    </div>
 </body>
-<script src="../script/script.js"></script>
+<script src="../script/homepage.js"></script>
 </html>
