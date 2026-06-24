@@ -10,15 +10,27 @@
     <title>Mang Inasal Kiosk</title>
 </head>
 <body class="flex items-center justify-center min-h-screen">
-    <main class="w-screen h-screen">
-        <img class="fixed inset-0 w-full h-full" src="https://www.manginasal.ph/wp-content/uploads/2026/01/800x533.png" alt="">
-        
-        <div class="absolute inset-0 bg-black/20"></div>
+    <main class="w-screen h-screen overflow-hidden relative">
 
-        <div class="relative z-10 flex items-center justify-center h-full">
-            <a href="pages/homepage.html" class="px-8 py-3 bg-[#009436] trasition-all duration-300 lg:hover:bg-[#00782C] text-white rounded-lg font-semibold">Start</a>
-        </div>
-    </main>
+    <img 
+        class="absolute inset-0 w-full h-full object-cover"
+        src="https://www.manginasal.ph/wp-content/uploads/2026/01/800x533.png"
+        alt="">
+
+    <div class="absolute inset-0 bg-black/20"></div>
+
+
+    <div class="relative z-10 flex items-center justify-center h-full">
+
+        <a 
+        href="pages/homepage.html"
+        class="px-8 py-3 bg-[#009436] transition-all duration-300 lg:hover:bg-[#00782C] text-white rounded-lg font-semibold">
+            Start
+        </a>
+
+    </div>
+
+</main>
 </body>
 <script src="script/login.js"></script>
 </html>
