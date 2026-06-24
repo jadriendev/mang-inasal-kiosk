@@ -10,8 +10,8 @@
     <title>Menu | Mang Inasal Kiosk</title>
 </head>
 <body class="min-h-screen flex-col">
-    <header class="w-full border-b">
-        <nav class="max-w-7xl mx-auto flex items-center justify-between py-5 lg:py-3 px-5">
+    <header class="w-full border-b fixed top-0 left-0 z-50">
+        <nav class="max-w-7xl mx-auto bg-white flex items-center justify-between py-5 lg:py-3 px-5">
             <button id="menuBtn" class="block lg:hidden">
                 <i class="fa fa-bars text-2xl"></i>
             </button>
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <section class="w-full border-b">
+    <section class="w-full border-b lg:mt-[76px] mt-[80px]">
         <div class="max-w-[1200px] mx-auto">
             <div class="w-full py-3 px-3">
                 <a class="text-md font-semibold lg:hover:text-[#009436]" href="homepage.html">Menu</a>
@@ -1093,7 +1093,6 @@
 
     <div id="cartPopup" class="hidden fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
         <div class="bg-white rounded-2xl p-6 w-[350px] text-center">
-
             <div class="w-16 h-16 mx-auto flex items-center justify-center bg-[#009436] rounded-full">
                 <i class="fa fa-check text-white text-3xl"></i>
             </div>
@@ -1102,17 +1101,68 @@
                 Added to Cart!
             </h2>
 
-            <p id="popupItemName" class="text-gray-600 mt-2">
-            </p>
+            <p id="popupItemName" class="text-gray-600 mt-2"></p>
 
             <button
                 id="closePopup"
                 class="mt-5 w-full bg-[#009436] text-white py-3 rounded-xl font-semibold">
                 Close
             </button>
-
         </div>
     </div>
+
+    <footer class="w-full bg-[#009436] py-9 mt-5">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                <div>
+                    <ul class="flex text-center lg:text-left flex-col lg:flex-row gap-3 lg:gap-10">
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">About Us</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">FAQs</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">Contact Us</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">Terms and Conditions</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">Corporate Information</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">Privacy Notice</a>
+                        </li>
+                    </ul>
+
+                    <p class="text-xs text-center lg:text-left lg:text-sm text-white mt-5 max-w-3xl">
+                        Mang-Inasal Kiosk functions as an independent self-service terminal
+                        which enhances the dining process at Mang Inasal restaurants.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-center lg:justify-end gap-3">
+                    <img class="w-[110px] lg:w-[170px] cursor-pointer" src="../images/google.svg" alt="">
+                    <img class="w-[110px] lg:w-[170px] cursor-pointer" src="../images/appstore.svg" alt="">
+                </div>
+
+            </div>
+
+            <div class="mt-8 border border-[#BDBDBD]"></div>
+
+            <div>
+                <p class="text-xs lg:text-sm text-white mt-5 text-center lg:text-left">
+                    Copyright © 2026 - 2026. Mang Inasal Kiosk, All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="../script/homepage.js"></script>
 </html>

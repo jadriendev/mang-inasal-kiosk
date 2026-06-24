@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Cart | Mang Inasal Kiosk</title>
 </head>
-<body class="min-h-screen flex-col">
+<body class="min-h-screen flex flex-col">
     <header class="w-full border-b">
         <nav class="max-w-7xl mx-auto flex items-center justify-between py-5 lg:py-3 px-5">
             <button id="menuBtn" class="block lg:hidden">
@@ -59,43 +59,98 @@
         </div>
     </div>
 
-    <section class="w-full">
-        <div class="max-w-7xl mx-auto px-5 py-8">
+    <main class="flex-1">
+        <section class="w-full">
+            <div class="max-w-7xl mx-auto px-5 py-8">
 
-            <div class="border-b pb-4 mb-6">
-                <h1 class="text-3xl font-bold">
-                    My Cart
-                </h1>
-            </div>
+                <div class="border-b pb-4 mb-6">
+                    <h1 class="text-3xl font-bold">
+                        My Cart
+                    </h1>
+                </div>
 
-            <div class="grid lg:grid-cols-[2fr_1fr] gap-6">
-                <div id="cartItems" class="space-y-4"></div>
+                <div class="grid lg:grid-cols-[2fr_1fr] gap-6">
+                    <div id="cartItems" class="space-y-4"></div>
 
-                <div class="border rounded-xl p-5 h-fit sticky top-5">
-                    <h2 class="text-xl font-bold mb-4">
-                        Order Summary
-                    </h2>
+                    <div class="border rounded-xl p-5 h-fit sticky top-5">
+                        <h2 class="text-xl font-bold mb-4">
+                            Order Summary
+                        </h2>
 
-                    <div class="flex justify-between mb-3">
-                        <span>Subtotal</span>
-                        <span id="subtotal">₱0</span>
+                        <div class="flex justify-between mb-3">
+                            <span>Subtotal</span>
+                            <span id="subtotal">₱0</span>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="flex justify-between text-xl font-bold">
+                            <span>Total</span>
+                            <span id="grandTotal">₱0</span>
+                        </div>
+
+                        <button
+                            class="w-full mt-5 py-3 bg-[#009436] text-white rounded-xl font-semibold hover:bg-green-700 transition">
+                            Proceed to Checkout
+                        </button>
                     </div>
-
-                    <hr class="my-4">
-
-                    <div class="flex justify-between text-xl font-bold">
-                        <span>Total</span>
-                        <span id="grandTotal">₱0</span>
-                    </div>
-
-                    <button
-                        class="w-full mt-5 py-3 bg-[#009436] text-white rounded-xl font-semibold hover:bg-green-700 transition">
-                        Proceed to Checkout
-                    </button>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <footer class="w-full bg-[#009436] py-9 mt-5">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                <div>
+                    <ul class="flex text-center lg:text-left flex-col lg:flex-row gap-3 lg:gap-10">
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">About Us</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">FAQs</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">Contact Us</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">Terms and Conditions</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">Corporate Information</a>
+                        </li>
+
+                        <li class="text-white text-xs lg:text-sm font-semibold lg:hover:underline">
+                            <a href="#">Privacy Notice</a>
+                        </li>
+                    </ul>
+
+                    <p class="text-xs text-center lg:text-left lg:text-sm text-white mt-5 max-w-3xl">
+                        Mang-Inasal Kiosk functions as an independent self-service terminal
+                        which enhances the dining process at Mang Inasal restaurants.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-center lg:justify-end gap-3">
+                    <img class="w-[110px] lg:w-[170px] cursor-pointer" src="../images/google.svg" alt="">
+                    <img class="w-[110px] lg:w-[170px] cursor-pointer" src="../images/appstore.svg" alt="">
+                </div>
+
+            </div>
+
+            <div class="mt-8 border border-[#BDBDBD]"></div>
+
+            <div>
+                <p class="text-xs lg:text-sm text-white mt-5 text-center lg:text-left">
+                    Copyright © 2026 - 2026. Mang Inasal Kiosk, All rights reserved.
+                </p>
+            </div>
         </div>
-    </section>
+    </footer>
 </body>
 <script src="../script/cart.js"></script>
 </html>
