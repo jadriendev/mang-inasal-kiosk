@@ -1,3 +1,11 @@
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    setDoc,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
 const cartItemsContainer = document.getElementById("cartItems");
 const subtotalElement = document.getElementById("subtotal");
 const grandTotalElement = document.getElementById("grandTotal");
@@ -271,7 +279,7 @@ const closeGcashModal = document.getElementById("closeGcashModal");
 
 if (gcashPayment) {
 
-    gcashPayment.addEventListener("click", () => {
+    gcashPayment.addEventListener("click", async () => {
 
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -286,11 +294,15 @@ if (gcashPayment) {
 
         const transactionId = "TXN" + Date.now();
 
-        localStorage.setItem("pendingPayment", JSON.stringify({
-            transactionId,
-            amount: total,
-            status: "pending"
-        }));
+        await setDoc(
+            doc(db, "payments", transactionId),
+            {
+                transactionId,
+                amount: total,
+                status: "pending",
+                createdAt: Date.now()
+            }
+        );
 
         paymentModal.classList.add("hidden");
         gcashModal.classList.remove("hidden");
@@ -303,6 +315,47 @@ if (gcashPayment) {
             height: 220
         });
 
+        onSnapshot(
+            doc(db, "payments", transactionId),
+            (snapshot) => {
+
+                const paymentData = snapshot.data();
+
+                if (!paymentData) return;
+
+                if (paymentData.status === "paid") {
+
+                    const orders = JSON.parse(
+                        localStorage.getItem("orders")
+                    ) || [];
+
+                    const newOrder = {
+                        queueNumber: Math.floor(
+                            1000 + Math.random() * 9000
+                        ),
+                        date: new Date().toLocaleString(),
+                        status: "Preparing",
+                        items: [...cart],
+                        total
+                    };
+
+                    orders.push(newOrder);
+
+                    localStorage.setItem(
+                        "orders",
+                        JSON.stringify(orders)
+                    );
+
+                    localStorage.removeItem("cart");
+
+                    alert("Payment Successful!");
+
+                    window.location.href = "order.html";
+                }
+
+            }
+        );
+
     });
 
 }
@@ -310,40 +363,3 @@ if (gcashPayment) {
 closeGcashModal?.addEventListener("click", () => {
     gcashModal.classList.add("hidden");
 });
-
-setInterval(() => {
-
-    const payment = JSON.parse(localStorage.getItem("pendingPayment"));
-
-    if (!payment) return;
-
-    if (payment.status === "paid") {
-
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-        const total = cart.reduce((sum, item) => {
-            return sum + (item.price * item.quantity);
-        }, 0);
-
-        const newOrder = {
-            queueNumber: Math.floor(1000 + Math.random() * 9000),
-            date: new Date().toLocaleString(),
-            status: "Preparing",
-            items: [...cart],
-            total
-        };
-
-        orders.push(newOrder);
-
-        localStorage.setItem("orders", JSON.stringify(orders));
-
-        localStorage.removeItem("cart");
-        localStorage.removeItem("pendingPayment");
-
-        alert("Payment Successful!");
-
-        window.location.href = "order.html";
-    }
-
-}, 1000);

@@ -1,39 +1,119 @@
-const scanner = new Html5QrcodeScanner(
-    "reader",
-    {
-        fps: 10,
-        qrbox: 250
-    }
-);
+import { db } from "./firebase.js";
 
-scanner.render(onScanSuccess);
+import {
+    doc,
+    getDoc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-function onScanSuccess(decodedText) {
+const html5QrCode = new Html5Qrcode("reader");
 
-    const payment = JSON.parse(localStorage.getItem("pendingPayment"));
+Html5Qrcode.getCameras()
+.then(devices => {
 
-    if (!payment) {
-        alert("No pending payment found.");
-        return;
-    }
+    if (devices && devices.length) {
 
-    if (decodedText === payment.transactionId) {
+        html5QrCode.start(
+            { facingMode: "environment" },
+            {
+                fps: 10,
+                qrbox: 250
+            },
+            async (decodedText) => {
 
-        payment.status = "paid";
+                const paymentRef = doc(
+                    db,
+                    "payments",
+                    decodedText
+                );
 
-        localStorage.setItem(
-            "pendingPayment",
-            JSON.stringify(payment)
+                const paymentSnap = await getDoc(
+                    paymentRef
+                );
+
+                if (!paymentSnap.exists()) {
+                    alert("Invalid QR Code");
+                    return;
+                }
+
+                await updateDoc(
+                    paymentRef,
+                    {
+                        status: "paid"
+                    }
+                );
+
+                await html5QrCode.stop();
+
+                alert("Payment Successful!");
+
+                window.close();
+
+            }
         );
 
-        alert("Payment Successful!");
+    }
 
-        window.close();
+})
+.catch(err => {
+    console.log(err);
+});import { db } from "./firebase.js";
 
-    } else {
+import {
+    doc,
+    getDoc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-        alert("Invalid QR Code");
+const html5QrCode = new Html5Qrcode("reader");
+
+Html5Qrcode.getCameras()
+.then(devices => {
+
+    if (devices && devices.length) {
+
+        html5QrCode.start(
+            { facingMode: "environment" },
+            {
+                fps: 10,
+                qrbox: 250
+            },
+            async (decodedText) => {
+
+                const paymentRef = doc(
+                    db,
+                    "payments",
+                    decodedText
+                );
+
+                const paymentSnap = await getDoc(
+                    paymentRef
+                );
+
+                if (!paymentSnap.exists()) {
+                    alert("Invalid QR Code");
+                    return;
+                }
+
+                await updateDoc(
+                    paymentRef,
+                    {
+                        status: "paid"
+                    }
+                );
+
+                await html5QrCode.stop();
+
+                alert("Payment Successful!");
+
+                window.close();
+
+            }
+        );
 
     }
 
-}
+})
+.catch(err => {
+    console.log(err);
+});
