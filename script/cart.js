@@ -204,3 +204,70 @@ sidebarOverlay?.addEventListener("click",()=>{
     sidebarOverlay.classList.add("hidden");
 
 });
+
+const checkoutBtn = document.getElementById("checkoutBtn");
+const paymentModal = document.getElementById("paymentModal");
+const closePaymentModal = document.getElementById("closePaymentModal");
+
+const cashPayment = document.getElementById("cashPayment");
+const gcashPayment = document.getElementById("gcashPayment");
+
+if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", () => {
+        paymentModal.classList.remove("hidden");
+    });
+}
+
+if (closePaymentModal) {
+    closePaymentModal.addEventListener("click", () => {
+        paymentModal.classList.add("hidden");
+    });
+}
+
+if (paymentModal) {
+    paymentModal.addEventListener("click", (e) => {
+        if (e.target === paymentModal) {
+            paymentModal.classList.add("hidden");
+        }
+    });
+}
+
+if (cashPayment) {
+    cashPayment.addEventListener("click", () => {
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    const total = cart.reduce((sum, item) => {
+        return sum + (item.price * item.quantity);
+    }, 0);
+
+    const newOrder = {
+        queueNumber: Math.floor(1000 + Math.random() * 9000),
+        date: new Date().toLocaleString(),
+        status: "Preparing",
+        items: [...cart],
+        total: total
+    };
+
+    orders.push(newOrder);
+
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    localStorage.removeItem("cart");
+
+    window.location.href = "order.html";
+});
+}
+
+if (gcashPayment) {
+    gcashPayment.addEventListener("click", () => {
+        alert("GCash payment coming soon.");
+    });
+}

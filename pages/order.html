@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Cart | Mang Inasal Kiosk</title>
+    <title>Orders | Mang Inasal Kiosk</title>
 </head>
 <body class="min-h-screen flex flex-col">
     <header class="w-full border-b">
@@ -21,6 +21,11 @@
             </div>
 
             <div class="flex items-center gap-5">
+                <a class="hidden lg:block bg-[#009436] py-2 px-3 lg:px-4 text-white rounded-lg transition-all duration-300 hover:scale-105" href="cart.html">
+                    <i class="fa fa-shopping-cart mr-2"></i>
+                    Back to Cart
+                </a>
+
                 <a class="bg-[#009436] hidden lg:block py-2 px-3 lg:px-4 text-white rounded-lg transition-all duration-300 lg:hover:scale-105" href="order.html">Order History</a>
 
                 <a class="bg-[#009436] py-2 px-3 lg:px-4 text-white rounded-lg transition-all duration-300 hover:scale-105" href="homepage.html">
@@ -52,51 +57,31 @@
                 Welcome, Eric
             </h2>
 
-            <a href="order.html"
+            <a href="cart.html"
                 class="block bg-[#009436] text-white text-center py-3 rounded-lg">
+                <i class="fa fa-shopping-cart mr-2"></i>
+                Back to cart
+            </a>
+
+            <a href="order.html"
+                class="block bg-[#009436] text-white text-center py-3 mt-4 rounded-lg">
                 Order History
             </a>
         </div>
     </div>
 
     <main class="flex-1">
-        <section class="w-full">
-            <div class="max-w-7xl mx-auto px-5 py-8">
-
-                <div class="border-b pb-4 mb-6">
-                    <h1 class="text-3xl font-bold">
-                        My Cart
-                    </h1>
-                </div>
-
-                <div class="grid lg:grid-cols-[2fr_1fr] gap-6">
-                    <div id="cartItems" class="space-y-4"></div>
-
-                    <div class="border rounded-xl p-5 h-fit sticky top-5">
-                        <h2 class="text-xl font-bold mb-4">
-                            Order Summary
-                        </h2>
-
-                        <div class="flex justify-between mb-3">
-                            <span>Subtotal</span>
-                            <span id="subtotal">₱0</span>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <div class="flex justify-between text-xl font-bold">
-                            <span>Total</span>
-                            <span id="grandTotal">₱0</span>
-                        </div>
-
-                        <button
-                            id="checkoutBtn"
-                            class="w-full mt-5 py-3 bg-[#009436] text-white rounded-xl font-semibold hover:bg-green-700 transition">
-                            Proceed to Checkout
-                        </button>
-                    </div>
-                </div>
+        <section class="max-w-7xl mx-auto px-5 py-8">
+            <div class="border-b pb-4 mb-6">
+                <h1 class="text-3xl font-bold">
+                    Order History
+                </h1>
             </div>
+
+            <div id="ordersContainer" class="space-y-4">
+
+            </div>
+
         </section>
     </main>
 
@@ -187,5 +172,5 @@
         </div>
     </div>
 </body>
-<script src="../script/cart.js"></script>
+<script src="../script/order.js"></script>
 </html>
