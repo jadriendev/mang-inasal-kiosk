@@ -266,8 +266,84 @@ if (cashPayment) {
 });
 }
 
+const gcashModal = document.getElementById("gcashModal");
+const closeGcashModal = document.getElementById("closeGcashModal");
+
 if (gcashPayment) {
+
     gcashPayment.addEventListener("click", () => {
-        alert("GCash payment coming soon.");
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (cart.length === 0) {
+            alert("Your cart is empty.");
+            return;
+        }
+
+        const total = cart.reduce((sum, item) => {
+            return sum + (item.price * item.quantity);
+        }, 0);
+
+        const transactionId = "TXN" + Date.now();
+
+        localStorage.setItem("pendingPayment", JSON.stringify({
+            transactionId,
+            amount: total,
+            status: "pending"
+        }));
+
+        paymentModal.classList.add("hidden");
+        gcashModal.classList.remove("hidden");
+
+        document.getElementById("qrcode").innerHTML = "";
+
+        new QRCode(document.getElementById("qrcode"), {
+            text: transactionId,
+            width: 220,
+            height: 220
+        });
+
     });
+
 }
+
+closeGcashModal?.addEventListener("click", () => {
+    gcashModal.classList.add("hidden");
+});
+
+setInterval(() => {
+
+    const payment = JSON.parse(localStorage.getItem("pendingPayment"));
+
+    if (!payment) return;
+
+    if (payment.status === "paid") {
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+        const total = cart.reduce((sum, item) => {
+            return sum + (item.price * item.quantity);
+        }, 0);
+
+        const newOrder = {
+            queueNumber: Math.floor(1000 + Math.random() * 9000),
+            date: new Date().toLocaleString(),
+            status: "Preparing",
+            items: [...cart],
+            total
+        };
+
+        orders.push(newOrder);
+
+        localStorage.setItem("orders", JSON.stringify(orders));
+
+        localStorage.removeItem("cart");
+        localStorage.removeItem("pendingPayment");
+
+        alert("Payment Successful!");
+
+        window.location.href = "order.html";
+    }
+
+}, 1000);

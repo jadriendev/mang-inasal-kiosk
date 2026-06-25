@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <title>Cart | Mang Inasal Kiosk</title>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -186,6 +187,35 @@
 
         </div>
     </div>
+
+    <div id="gcashModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+
+    <div class="bg-white rounded-2xl p-6 w-full max-w-md text-center">
+
+        <h2 class="text-2xl font-bold mb-4">
+            Scan QR to Pay
+        </h2>
+
+        <div
+            id="qrcode"
+            class="flex justify-center mb-5">
+        </div>
+
+        <p class="text-sm text-gray-500 mb-4">
+            Open phone.html and scan this QR code
+        </p>
+
+        <button
+            id="closeGcashModal"
+            class="w-full py-3 bg-gray-100 rounded-xl">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </body>
 <script src="../script/cart.js"></script>
 </html>
