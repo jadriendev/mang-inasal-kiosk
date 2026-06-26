@@ -317,14 +317,15 @@ if (gcashPayment) {
         const transactionId = "TXN" + Date.now();
 
         await setDoc(
-            doc(db, "payments", transactionId),
-            {
-                transactionId,
-                amount: total,
-                status: "pending",
-                createdAt: Date.now()
-            }
-        );
+    doc(db, "payments", transactionId),
+    {
+        transactionId,
+        amount: total,
+        status: "pending",
+        items:[...cart],
+        createdAt: Date.now()
+    }
+);
 
         paymentModal.classList.add("hidden");
         gcashModal.classList.remove("hidden");
@@ -338,8 +339,8 @@ if (gcashPayment) {
         });
 
         onSnapshot(
-            doc(db, "payments", transactionId),
-            (snapshot) => {
+    doc(db, "payments", transactionId),
+    async (snapshot) => {
 
                 const paymentData = snapshot.data();
 
@@ -347,33 +348,42 @@ if (gcashPayment) {
 
                 if (paymentData.status === "paid") {
 
-                    const orders = JSON.parse(
-                        localStorage.getItem("orders")
-                    ) || [];
 
-                    const newOrder = {
-                        queueNumber: Math.floor(
-                            1000 + Math.random() * 9000
-                        ),
-                        date: new Date().toLocaleString(),
-                        status: "Preparing",
-                        items: [...cart],
-                        total
-                    };
+    const orderId = "ORD" + Date.now();
 
-                    orders.push(newOrder);
 
-                    localStorage.setItem(
-                        "orders",
-                        JSON.stringify(orders)
-                    );
+    await setDoc(
+        doc(db,"orders",orderId),
+        {
 
-                    localStorage.removeItem("cart");
+            customer:"Guest",
 
-                    alert("Payment Successful!");
+            queueNumber:
+            Math.floor(1000 + Math.random() * 9000),
 
-                    window.location.href = "order.html";
-                }
+            date:
+            new Date().toLocaleString(),
+
+            status:"Preparing",
+
+            items:[...cart],
+
+            total:total
+
+        }
+    );
+
+
+    localStorage.removeItem("cart");
+
+
+    alert("Payment Successful!");
+
+
+    window.location.href="order.html";
+
+
+}
 
             }
         );
