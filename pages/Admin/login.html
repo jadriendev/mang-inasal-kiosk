@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/Mang_Inasal.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login | Mang Inasal Kiosk</title>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <main class="flex items-center justify-center flex-col w-full gap-4 bg-white shadow-2xl max-w-md py-8 px-8 rounded-xl">
+        <div class="flex items-center justify-center gap-1 flex-col">
+            <img class="w-[120px] lg:w-[150px]" src="images/Mang_Inasal.svg" alt="">
+            <h1 class="font-bold text-2xl lg:text-3xl">Mang Inasal Kiosk</h1>
+            <p id="authTitle" class="text-lg font-bold">Admin Login</p>
+            <p class="text-[#E0D500] font-bold text-sm text-center lg:text-left">An Integrated Self-Service Ordering & Payment System</p>
+        </div>
+
+        <div class="border w-full"></div>
+
+        <form id="authForm" class="space-y-5 w-full">
+            <div id="emailInput" class="relative">
+                <i class="absolute left-2 top-2 fa fa-envelope text-xl text-gray-500"></i>
+                <input class="border-2 pl-9 border-gray-400 py-2 rounded-lg w-full" type="email" name="email" id="email" placeholder="Email">
+            </div>
+
+            <div class="relative">
+                <i class="absolute left-2 top-2 fa fa-key text-lg text-gray-500"></i>
+                <input class="border-2 pl-9 border-gray-400 py-2 rounded-lg w-full" type="password" name="password" id="password" placeholder="Password">
+                <i id="togglePassword" class="absolute right-3 top-2 fa fa-eye-slash text-lg text-gray-500 cursor-pointer"></i>
+            </div>
+            
+            <button id="submitBtn" type="submit" class="bg-[#009436] py-2 px-10  w-full rounded-lg text-white trasition-all duration-300 lg:hover:bg-[#00782C]">
+                Login
+            </button>
+        </form>
+    </main>
+</body>
+<script type="module" src="script/login.js"></script>
+</html>

@@ -42,10 +42,10 @@ authForm.addEventListener("submit",(e)=>{
         password === admin.password
     ){
 
-        document.cookie = "adminLogin=true; max-age=86400";
+        document.cookie = "adminLogin=true; max-age=86400; path=/";
 
 
-        window.location.href = "pages/admin.html";
+        window.location.href = "./adminhome.html";
 
 
     }else{

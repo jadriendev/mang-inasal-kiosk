@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="./images/Mang_Inasal.svg">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<link href="https://fonts.cdnfonts.com/css/general-sans" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<title>Menu Management | Mang Inasal Kiosk</title>
+
+</head>
+
+
+<body class="bg-gray-100">
+
+
+<div class="flex min-h-screen">
+
+
+
+<aside id="sidebar"
+class="fixed lg:static inset-y-0 left-0 w-72 bg-white shadow-xl transform -translate-x-full lg:translate-x-0 transition duration-300 z-50">
+
+
+<div class="p-5 border-b flex items-center gap-3">
+
+<img src="./images/Mang_Inasal.svg" class="w-14">
+
+<h1 class="font-bold text-xl">
+Admin Panel
+</h1>
+
+</div>
+
+
+
+<nav class="p-5 space-y-3">
+
+
+<a href="adminhome.html"
+class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
+
+<i class="fa fa-chart-line"></i>
+Dashboard
+
+</a>
+
+
+
+<a href="menu.html"
+class="flex items-center gap-3 p-3 rounded-lg bg-[#009436] text-white">
+
+<i class="fa fa-utensils"></i>
+Menu
+
+</a>
+
+
+
+<a href="orders.html"
+class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
+
+<i class="fa fa-receipt"></i>
+Orders
+
+</a>
+
+
+
+<a href="users.html"
+class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
+
+<i class="fa fa-users"></i>
+Users
+
+</a>
+
+
+
+<a href="inventory.html"
+class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
+
+<i class="fa fa-box"></i>
+Inventory
+
+</a>
+
+
+
+<a href="reports.html"
+class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
+
+<i class="fa fa-file-chart-column"></i>
+Reports
+
+</a>
+
+
+
+<button id="logout"
+class="flex items-center gap-3 p-3 rounded-lg hover:bg-red-100 text-red-600 w-full">
+
+<i class="fa fa-right-from-bracket"></i>
+
+Logout
+
+</button>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+<div id="overlay"
+class="hidden fixed inset-0 bg-black/40 z-40">
+</div>
+
+
+
+
+
+
+
+<main class="flex-1">
+
+
+
+<header class="bg-white shadow p-5 flex justify-between items-center">
+
+
+<button id="menuBtn"
+class="lg:hidden text-2xl">
+
+<i class="fa fa-bars"></i>
+
+</button>
+
+
+
+<h1 class="font-bold text-xl">
+Menu Management
+</h1>
+
+
+</header>
+
+
+
+
+
+
+
+<section class="p-5">
+
+
+
+
+
+<div class="bg-white rounded-xl shadow p-5 mb-8">
+
+
+<h2 class="font-bold text-lg mb-5">
+Add Product
+</h2>
+
+
+
+
+<div class="grid md:grid-cols-2 gap-4">
+
+
+
+<input
+id="name"
+class="border p-3 rounded-lg"
+placeholder="Product Name">
+
+
+
+
+
+<select
+id="category"
+class="border p-3 rounded-lg">
+
+
+<option>Chicken Inasal</option>
+<option>Buddy Fiesta</option>
+<option>Family Fiesta</option>
+<option>Inumin</option>
+<option>Liempo</option>
+<option>Merienda</option>
+<option>Pork BBQ</option>
+<option>Sisig</option>
+<option>Solo Fiesta</option>
+<option>Panamis</option>
+
+
+</select>
+
+
+
+
+
+<input
+id="price"
+type="number"
+class="border p-3 rounded-lg"
+placeholder="Price">
+
+
+
+
+
+<input
+id="image"
+class="border p-3 rounded-lg"
+placeholder="Image Path">
+
+
+
+
+
+<input
+id="sizes"
+class="border p-3 rounded-lg"
+placeholder="Sizes (Regular, Large)">
+
+
+
+
+
+<input
+id="addons"
+class="border p-3 rounded-lg"
+placeholder="Add-ons (Extra Rice, Egg)">
+
+
+
+</div>
+
+
+
+
+
+<button
+id="addProduct"
+class="mt-5 bg-[#009436] text-white px-8 py-3 rounded-lg">
+
+Add Product
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div id="productsContainer"
+class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+
+</div>
+<!-- EDIT MODAL -->
+
+
+<div id="editModal"
+class="hidden fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-5">
+
+
+<div class="bg-white rounded-xl w-full max-w-lg p-6">
+
+
+<h2 class="font-bold text-xl mb-5">
+Edit Product
+</h2>
+
+
+
+
+<div class="grid gap-4">
+
+
+<input
+id="editName"
+class="border p-3 rounded-lg"
+placeholder="Product Name">
+
+
+
+
+
+<select
+id="editCategory"
+class="border p-3 rounded-lg">
+
+
+<option>Chicken Inasal</option>
+<option>Buddy Fiesta</option>
+<option>Family Fiesta</option>
+<option>Inumin</option>
+<option>Liempo</option>
+<option>Merienda</option>
+<option>Pork BBQ</option>
+<option>Sisig</option>
+<option>Solo Fiesta</option>
+<option>Panamis</option>
+
+
+</select>
+
+
+
+
+
+<input
+id="editPrice"
+type="number"
+class="border p-3 rounded-lg"
+placeholder="Price">
+
+
+
+
+
+<input
+id="editImage"
+class="border p-3 rounded-lg"
+placeholder="Image Path">
+
+
+
+
+
+<input
+id="editSizes"
+class="border p-3 rounded-lg"
+placeholder="Sizes">
+
+
+
+
+
+<input
+id="editAddons"
+class="border p-3 rounded-lg"
+placeholder="Add-ons">
+
+
+</div>
+
+
+
+
+
+
+<div class="flex gap-3 mt-5">
+
+
+<button
+id="saveEdit"
+class="bg-[#009436] text-white px-5 py-3 rounded-lg flex-1">
+
+Save Changes
+
+</button>
+
+
+
+
+
+<button
+id="closeEdit"
+class="bg-gray-300 px-5 py-3 rounded-lg flex-1">
+
+Cancel
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+</div>
+
+
+
+
+
+<script type="module" src="./script/menu.js"></script>
+
+
+</body>
+
+</html>

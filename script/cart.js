@@ -241,37 +241,59 @@ if (paymentModal) {
 }
 
 if (cashPayment) {
-    cashPayment.addEventListener("click", () => {
+
+cashPayment.addEventListener("click", async () => {
 
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (cart.length === 0) {
+    if(cart.length === 0){
         alert("Your cart is empty.");
         return;
     }
 
-    const orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-    const total = cart.reduce((sum, item) => {
+    const total = cart.reduce((sum,item)=>{
         return sum + (item.price * item.quantity);
-    }, 0);
+    },0);
 
-    const newOrder = {
-        queueNumber: Math.floor(1000 + Math.random() * 9000),
-        date: new Date().toLocaleString(),
-        status: "Preparing",
-        items: [...cart],
-        total: total
-    };
 
-    orders.push(newOrder);
 
-    localStorage.setItem("orders", JSON.stringify(orders));
+    const orderId = "ORD" + Date.now();
+
+
+
+    await setDoc(
+        doc(db,"orders",orderId),
+        {
+
+            customer:"Guest",
+
+            queueNumber:
+            Math.floor(1000 + Math.random() * 9000),
+
+            date:
+            new Date().toLocaleString(),
+
+            status:"Pending",
+
+            items:[...cart],
+
+            total:total
+
+        }
+    );
+
+
 
     localStorage.removeItem("cart");
 
-    window.location.href = "order.html";
+
+    window.location.href="order.html";
+
+
 });
+
+
 }
 
 const gcashModal = document.getElementById("gcashModal");
