@@ -408,7 +408,20 @@ closeEdit.addEventListener("click",()=>{
 
 
 
+const logout = document.getElementById("logout");
 
+
+logout?.addEventListener("click",()=>{
+
+
+    document.cookie =
+    "adminLogin=false; max-age=0; path=/";
+
+
+    window.location.href="/admin.html";
+
+
+});
 
 
 

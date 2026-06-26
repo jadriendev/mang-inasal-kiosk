@@ -199,7 +199,7 @@ logout?.addEventListener("click",()=>{
     "adminLogin=false; max-age=0; path=/";
 
 
-    window.location.href="../login.html";
+    window.location.href="/admin.html";
 
 
 });
