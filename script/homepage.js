@@ -52,12 +52,12 @@ onSnapshot(productsRef, (snapshot) => {
                 </div>
 
                 <button
-                    class="add-to-cart ml-auto flex items-center justify-center w-10 h-10 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
+                    class="add-to-cart ml-auto flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10 shrink-0 bg-[#009436] text-white rounded-full hover:scale-110 transition-transform duration-300"
                     data-name="${product.name}"
                     data-price="${product.price}"
                     data-image="${product.image}"
                     data-category="${product.category}">
-                    <i class="fa fa-plus"></i>
+                    <i class="fa-solid fa-plus"></i>
                 </button>
 
             </div>
