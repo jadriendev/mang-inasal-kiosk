@@ -66,9 +66,7 @@ ordersContainer.innerHTML += `
 
 
 <h2 class="font-bold">
-
-Order #${item.id.slice(0,6)}
-
+Queue #${order.queueNumber}
 </h2>
 
 
