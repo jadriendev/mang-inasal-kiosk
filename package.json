@@ -1,0 +1,24 @@
+{
+  "name": "mang-inasal-kiosk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadriendev/mang-inasal-kiosk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jadriendev/mang-inasal-kiosk/issues"
+  },
+  "homepage": "https://github.com/jadriendev/mang-inasal-kiosk#readme",
+  "dependencies": {
+    "firebase-admin": "^14.1.0"
+  }
+}
